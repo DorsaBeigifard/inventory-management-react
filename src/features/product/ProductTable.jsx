@@ -51,7 +51,7 @@ function ProductTable({ products, updateProducts, categories }) {
               </Table.Cell>
               <Table.Cell>
                 <div className="flex items-center justify-between gap-0.5">
-                  <BiEdit className="text-lg text-secondary-900 cursor-pointer" />
+                  {/* <BiEdit className="text-lg text-secondary-900 cursor-pointer" /> */}
                   <MdDelete
                     className="text-lg text-error cursor-pointer"
                     onClick={() => handleDelete(product.id)}
