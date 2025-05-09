@@ -25,7 +25,7 @@ function SelectField({
             bg-white placeholder:text-secondary-400 focus:border-primary-500 
             focus:outline-none focus:ring-1 focus:ring-primary-500 
             dark:border-secondary-600 dark:bg-secondary-0 
-            dark:text-secondary-50 dark:placeholder:text-secondary-300
+             dark:placeholder:text-secondary-300
           `}
       >
         <option value="">Select an option</option>

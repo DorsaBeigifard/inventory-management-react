@@ -29,7 +29,7 @@ function App() {
             <div>
               <button
                 onClick={() => setEditCategory(true)}
-                className="text-secondary-500 cursor-pointer"
+                className="text-secondary-500 cursor-pointer dark:text-white"
               >
                 Add a new category?
               </button>

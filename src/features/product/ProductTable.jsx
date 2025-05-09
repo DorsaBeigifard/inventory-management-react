@@ -1,6 +1,5 @@
 // ProductTable.jsx
 import React from "react";
-import { BiEdit } from "react-icons/bi";
 import { HiClipboardList } from "react-icons/hi";
 import { MdDelete } from "react-icons/md";
 import Table from "../../ui/Table";
@@ -28,7 +27,7 @@ function ProductTable({ products, updateProducts, categories }) {
           <Table.Row>
             <Table.Cell
               colSpan="6"
-              className="text-center text-sm text-secondary-500"
+              className="text-center text-sm text-secondary-500 dark:text-white"
             >
               No products added yet.
             </Table.Cell>

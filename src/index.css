@@ -55,17 +55,17 @@
       --color-primary-100: 151, 160, 255;
       --color-primary-50: 163, 172, 255;
 
-      --color-secondary-900: 249, 250, 251;
-      --color-secondary-800: 243, 244, 246;
-      --color-secondary-700: 229, 231, 235;
-      --color-secondary-600: 209, 213, 219;
-      --color-secondary-500: 156, 163, 175;
-      --color-secondary-400: 107, 114, 128;
-      --color-secondary-300: 75, 85, 99;
-      --color-secondary-200: 55, 65, 81;
-      --color-secondary-100: 31, 41, 55;
-      --color-secondary-50: 17, 24, 39;
-      --color-secondary-0: 24, 33, 47;
+      --color-secondary-900: 15, 23, 42;
+      --color-secondary-800: 21, 31, 50;
+      --color-secondary-700: 26, 35, 54;
+      --color-secondary-600: 30, 41, 59; /* base */
+      --color-secondary-500: 45, 55, 72;
+      --color-secondary-400: 71, 85, 105;
+      --color-secondary-300: 100, 116, 139;
+      --color-secondary-200: 148, 163, 184;
+      --color-secondary-100: 203, 213, 225;
+      --color-secondary-50: 241, 245, 249;
+      --color-secondary-0: 248, 250, 252;
 
       --color-success: 0, 192, 115;
       --color-warning: 255, 153, 0;
@@ -76,16 +76,16 @@
   }
 
   h2 {
-    @apply font-semibold text-lg text-secondary-900 mb-2 text-lg;
+    @apply font-semibold text-lg text-secondary-900 mb-2 text-lg dark:text-primary-200;
   }
 }
 
 @layer components {
   .text-input {
-    @apply w-full rounded-md border border-secondary-300 px-3 py-2 text-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500;
+    @apply w-full rounded-md border border-secondary-300 px-3 py-2 text-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500 dark:text-black;
   }
   .component-style {
-    @apply bg-white p-4 rounded-xl border border-primary-500 border-dashed shadow-md;
+    @apply bg-white dark:bg-secondary-900 p-4 rounded-xl border border-primary-500 border-dashed shadow-md;
   }
 
   .btn {
@@ -95,7 +95,7 @@
     @apply bg-primary-900  text-white;
   }
   .btn--secondary {
-    @apply border border-secondary-900 opacity-40;
+    @apply border border-secondary-900 dark:border-white opacity-40;
   }
   .btn--danger {
     @apply border border-rose-700 text-rose-700;
@@ -110,7 +110,7 @@
   }
 
   .badge--secondary {
-    @apply border border-secondary-300/50 text-secondary-300;
+    @apply border border-secondary-300/50 text-secondary-300 dark:bg-white;
   }
 
   .badge--success {
@@ -131,6 +131,7 @@ body {
   margin: 0;
   font-family: "Open Sans";
   background-color: rgb(var(--background));
+  @apply dark:text-white;
 }
 
 .table-container {

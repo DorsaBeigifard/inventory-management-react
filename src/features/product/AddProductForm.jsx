@@ -22,7 +22,7 @@ function AddProductForm({ categories, setNewProducts, products }) {
   };
 
   return (
-    <div className="component-style border-secondary-600">
+    <div className="component-style border-secondary-600 dark:border-white">
       <h2>Product Detail</h2>
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>

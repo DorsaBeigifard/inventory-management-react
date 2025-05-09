@@ -8,7 +8,7 @@ function Table({ children }) {
 
 function TableHeader({ children }) {
   return (
-    <thead className="text-sm font-light border-b pb-2 text-secondary-900">
+    <thead className="text-sm font-light border-b pb-2 text-secondary-900 dark:text-primary-400">
       <tr>{children}</tr>
     </thead>
   );
