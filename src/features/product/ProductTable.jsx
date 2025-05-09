@@ -37,7 +37,9 @@ function ProductTable({ products, updateProducts, categories }) {
           products.map((product) => (
             <Table.Row key={product.id}>
               <Table.Cell>{product.productName}</Table.Cell>
-              <Table.Cell>{product.date}</Table.Cell>
+              <Table.Cell>
+                {new Date(product.date).toLocaleDateString("en-GB")}
+              </Table.Cell>
               <Table.Cell>
                 <span className="badge badge--secondary text-[12px]">
                   {product.category}

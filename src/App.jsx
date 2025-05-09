@@ -12,6 +12,26 @@ function App() {
   const [categories, setCategories] = useLocalStorage("categories", []);
   const [products, setProducts] = useLocalStorage("products", []);
 
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [sortOrder, setSortOrder] = useState("");
+
+  const filteredProducts = products
+    .filter((product) =>
+      product.productName?.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+    .filter((product) =>
+      selectedCategory ? product.category === selectedCategory : true
+    )
+    .sort((a, b) => {
+      if (sortOrder === "latest") {
+        return new Date(b.date) - new Date(a.date);
+      } else if (sortOrder === "earliest") {
+        return new Date(a.date) - new Date(b.date);
+      }
+      return 0;
+    });
+
   return (
     <>
       <Header />
@@ -42,9 +62,14 @@ function App() {
 
         <div className="md:col-span-2 component-style">
           <h2>Product List</h2>
-          <SearchProduct products={products} categories={categories} />
+          <SearchProduct
+            setSearchQuery={setSearchQuery}
+            setSelectedCategory={setSelectedCategory}
+            setSortOrder={setSortOrder}
+            categories={categories}
+          />
           <ProductTable
-            products={products}
+            products={filteredProducts}
             updateProducts={setProducts}
             categories={categories}
           />

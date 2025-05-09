@@ -1,72 +1,61 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TextField from "../../ui/TextField";
 import { useForm } from "react-hook-form";
 
-function SearchProduct({ products, categories }) {
-  const { register, handleSubmit } = useForm();
-
-  const onSubmit = (data) => {
-    console.log(data);
-  };
-
+function SearchProduct({
+  setSearchQuery,
+  setSelectedCategory,
+  setSortOrder,
+  categories,
+}) {
   return (
-    <div>
-      <form
-        className="grid gap-4 py-4  sm:grid-cols-2 xl:grid-cols-[3fr_2fr_1fr]"
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        <div className="flex items-center gap-2 sm:col-span-2 xl:col-span-1">
-          <label
-            htmlFor="search"
-            className="text-sm font-medium text-secondary-700 dark:text-secondary-200"
-          >
-            Search
-          </label>
-          <input
-            type="text"
-            name="search"
-            className="text-input"
-            placeholder="product name..."
-            {...register("search")}
-          />
-        </div>
+    <form className="grid gap-4 py-4  sm:grid-cols-2 xl:grid-cols-[3fr_2fr_1fr]">
+      <div className="flex items-center gap-2 sm:col-span-2 xl:col-span-1">
+        <label htmlFor="search" className="text-sm font-medium">
+          Search
+        </label>
+        <input
+          type="text"
+          id="search"
+          className="text-input"
+          placeholder="product name..."
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </div>
 
-        <div className="flex items-center gap-2">
-          <label
-            htmlFor="category"
-            className="text-sm font-medium text-secondary-700 dark:text-secondary-200"
-          >
-            Category
-          </label>
-          <select
-            id="category"
-            className="text-input"
-            {...register("category")}
-          >
-            <option value="">-</option>
-            {categories.map((cat) => (
-              <option key={cat.id} value={cat.value}>
-                {cat.categoryName}
-              </option>
-            ))}
-          </select>
-        </div>
+      <div className="flex items-center gap-2">
+        <label htmlFor="category" className="text-sm font-medium">
+          Category
+        </label>
+        <select
+          id="category"
+          className="text-input"
+          onChange={(e) => setSelectedCategory(e.target.value)}
+        >
+          <option value="">All</option>
+          {categories.map((cat) => (
+            <option key={cat.categoryName} value={cat.categoryName}>
+              {cat.categoryName}
+            </option>
+          ))}
+        </select>
+      </div>
 
-        <div className="flex items-center gap-2">
-          <label
-            htmlFor="sort"
-            className="text-sm font-medium text-secondary-700 dark:text-secondary-200"
-          >
-            Sort
-          </label>
-          <select id="sort" className="text-input" {...register("sort")}>
-            <option value="">-</option>
-            <option value="latest">Latest</option>
-            <option value="earliest">Earliest</option>
-          </select>
-        </div>
-      </form>
-    </div>
+      <div className="flex items-center gap-2">
+        <label htmlFor="sort" className="text-sm font-medium">
+          Sort
+        </label>
+        <select
+          id="sort"
+          className="text-input"
+          onChange={(e) => setSortOrder(e.target.value)}
+        >
+          <option value="">-</option>
+          <option value="latest">Latest</option>
+          <option value="earliest">Earliest</option>
+        </select>
+      </div>
+    </form>
   );
 }
 

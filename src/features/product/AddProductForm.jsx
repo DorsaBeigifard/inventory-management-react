@@ -13,7 +13,7 @@ function AddProductForm({ categories, setNewProducts, products }) {
   const onSubmit = (data) => {
     const newProduct = {
       id: Date.now(),
-      date: new Date().toLocaleDateString("en-GB"),
+      date: new Date().toISOString(),
       ...data,
     };
     setNewProducts([...products, newProduct]);
