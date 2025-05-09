@@ -43,7 +43,7 @@ function App() {
         <div className="md:col-span-2 component-style">
           <h2>Product List</h2>
           <SearchProduct />
-          <ProductTable />
+          <ProductTable products={products} categories={categories} />
         </div>
       </div>
     </>
