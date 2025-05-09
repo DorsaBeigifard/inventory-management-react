@@ -1,9 +1,8 @@
 import { useForm } from "react-hook-form";
 import TextField from "../../ui/TextField";
-import SelectField from "../../ui/SelectField";
 import TextAreaField from "../../ui/TextAreaField";
 
-function AddCategoryForm({ setEditCategory }) {
+function AddCategoryForm({ setEditCategory, setNewCategories, categories }) {
   const {
     register,
     handleSubmit,
@@ -12,6 +11,11 @@ function AddCategoryForm({ setEditCategory }) {
   } = useForm();
 
   const onSubmit = (data) => {
+    const newCategory = {
+      id: Date.now(),
+      ...data,
+    };
+    setNewCategories([...categories, newCategory]);
     console.log("Category Added:", data);
     reset();
   };

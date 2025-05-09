@@ -5,9 +5,11 @@ import Header from "./ui/Header";
 import { useState } from "react";
 import SearchProduct from "./features/product/SearchProduct";
 import ProductTable from "./features/product/ProductTable";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 function App() {
   const [editCategory, setEditCategory] = useState(false);
+  const [categories, setNewCategories] = useLocalStorage("categories", []);
 
   return (
     <>
@@ -24,9 +26,13 @@ function App() {
               </button>
             </div>
           ) : (
-            <AddCategoryForm setEditCategory={setEditCategory} />
+            <AddCategoryForm
+              setEditCategory={setEditCategory}
+              setNewCategories={setNewCategories}
+              categories={categories}
+            />
           )}
-          <AddProductForm />
+          <AddProductForm categories={categories} />
         </div>
 
         <div className="md:col-span-2 component-style">
