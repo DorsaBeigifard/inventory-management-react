@@ -23,7 +23,7 @@ function ProductTable() {
           <Table.Cell>Eleanor Mug</Table.Cell>
           <Table.Cell>23/1/2002</Table.Cell>
           <Table.Cell>
-            <span className="badge badge--secondary">Mug</span>
+            <span className="badge badge--secondary text-[12px]">Mug</span>
           </Table.Cell>
           <Table.Cell>$ 120</Table.Cell>
           <Table.Cell className="flex items-center justify-center">
