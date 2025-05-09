@@ -10,6 +10,7 @@ import useLocalStorage from "./hooks/useLocalStorage";
 function App() {
   const [editCategory, setEditCategory] = useState(false);
   const [categories, setNewCategories] = useLocalStorage("categories", []);
+  const [products, setNewProducts] = useLocalStorage("products", []);
 
   return (
     <>
@@ -32,7 +33,11 @@ function App() {
               categories={categories}
             />
           )}
-          <AddProductForm categories={categories} />
+          <AddProductForm
+            categories={categories}
+            products={products}
+            setNewProducts={setNewProducts}
+          />
         </div>
 
         <div className="md:col-span-2 component-style">

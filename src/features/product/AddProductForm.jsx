@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import TextField from "../../ui/TextField";
 import SelectField from "../../ui/SelectField";
 
-function AddProductForm() {
+function AddProductForm({ categories, setNewProducts, products }) {
   const {
     register,
     handleSubmit,
@@ -11,6 +11,11 @@ function AddProductForm() {
   } = useForm();
 
   const onSubmit = (data) => {
+    const newProduct = {
+      id: Date.now(),
+      ...data,
+    };
+    setNewProducts([...products, newProduct]);
     console.log("Product Added:", data);
     reset();
   };
@@ -56,9 +61,13 @@ function AddProductForm() {
             label="Category"
             name="category"
             register={register}
-            alidationSchema={{
+            validationSchema={{
               required: "Choose a category",
             }}
+            options={categories.map((cat) => ({
+              value: cat.categoryName,
+              label: cat.categoryName,
+            }))}
           />
 
           <button className="btn btn--primary">Add Product</button>
