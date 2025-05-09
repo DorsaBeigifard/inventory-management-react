@@ -3,6 +3,8 @@ import AddProductForm from "./features/product/AddProductForm";
 import AddCategoryForm from "./features/category/AddCategoryForm";
 import Header from "./ui/Header";
 import { useState } from "react";
+import SearchProduct from "./features/product/SearchProduct";
+import ProductTable from "./features/product/ProductTable";
 
 function App() {
   const [editCategory, setEditCategory] = useState(false);
@@ -27,9 +29,10 @@ function App() {
           <AddProductForm />
         </div>
 
-        <div className="md:col-span-2">
-          <div>search</div>
-          <div>product list</div>
+        <div className="md:col-span-2 component-style">
+          <h2>Product List</h2>
+          <SearchProduct />
+          <ProductTable />
         </div>
       </div>
     </>

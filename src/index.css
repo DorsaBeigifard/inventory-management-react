@@ -8,7 +8,7 @@
   :root {
     &,
     &.light-mode {
-      --background: 255, 255, 255;
+      --background: 240, 250, 255;
 
       /* Light mode primary: #AED9FF → base RGB: 174, 217, 255 */
       --color-primary-900: 140, 174, 204;
@@ -74,6 +74,10 @@
       --color-red-300: 252, 165, 165;
     }
   }
+
+  h2 {
+    @apply font-semibold text-lg text-secondary-900 mb-2 text-lg;
+  }
 }
 
 @layer components {
@@ -81,7 +85,7 @@
     @apply w-full rounded-md border border-secondary-300 px-3 py-2 text-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500;
   }
   .component-style {
-    @apply p-4 rounded-xl border border-primary-500 border-dashed shadow-md;
+    @apply bg-white p-4 rounded-xl border border-primary-500 border-dashed shadow-md;
   }
 
   .btn {
@@ -93,6 +97,32 @@
   .btn--secondary {
     @apply border border-secondary-900 opacity-40;
   }
+  .btn--danger {
+    @apply border border-rose-700 text-rose-700;
+  }
+
+  .badge {
+    @apply inline-block whitespace-nowrap rounded-xl px-2 py-0.5;
+  }
+
+  .badge--primary {
+    @apply bg-primary-900 text-white;
+  }
+
+  .badge--secondary {
+    @apply border border-secondary-300/50 text-secondary-300;
+  }
+
+  .badge--success {
+    @apply bg-green-500 text-white;
+  }
+  .badge--danger {
+    @apply bg-red-500 text-white;
+  }
+
+  .quantity {
+    @apply badge badge--primary w-6  h-6;
+  }
 }
 
 html,
@@ -101,4 +131,21 @@ body {
   margin: 0;
   font-family: "Open Sans";
   background-color: rgb(var(--background));
+}
+
+.table-container {
+  @apply max-h-[540px] overflow-y-auto;
+}
+
+table {
+  @apply w-full text-center;
+}
+
+th,
+td {
+  @apply p-2 text-sm;
+}
+
+tbody td:first-child {
+  @apply text-left;
 }

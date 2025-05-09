@@ -17,9 +17,7 @@ function AddProductForm() {
 
   return (
     <div className="component-style border-secondary-600">
-      <h2 className="font-semibold text-lg text-secondary-900 mb-2">
-        Product Detail
-      </h2>
+      <h2>Product Detail</h2>
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <TextField

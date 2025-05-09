@@ -6,9 +6,14 @@ function TextField({
   type = "text",
   required,
   errors,
+  flex,
 }) {
   return (
-    <div className="mb-2">
+    <div
+      className={`mb-2 ${
+        flex ? "flex items-center justify-between space-x-60" : ""
+      }`}
+    >
       <label
         className="mb-1 block text-sm font-medium text-secondary-700 dark:text-secondary-200"
         htmlFor={name}

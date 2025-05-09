@@ -18,9 +18,7 @@ function AddCategoryForm({ setEditCategory }) {
 
   return (
     <div className="component-style ">
-      <h2 className="font-semibold text-lg text-secondary-900 mb-2">
-        Category Detail
-      </h2>
+      <h2>Category Detail</h2>
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <TextField
