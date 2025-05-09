@@ -5,7 +5,12 @@ import { HiClipboardList } from "react-icons/hi";
 import { MdDelete } from "react-icons/md";
 import Table from "../../ui/Table";
 
-function ProductTable({ products, categories }) {
+function ProductTable({ products, updateProducts, categories }) {
+  const handleDelete = (productId) => {
+    const filtered = products.filter((p) => p.id !== productId);
+    updateProducts(filtered);
+  };
+
   return (
     <Table>
       <Table.Header>
@@ -38,14 +43,17 @@ function ProductTable({ products, categories }) {
                   {product.category}
                 </span>
               </Table.Cell>
-              <Table.Cell>$ {product.price}</Table.Cell>
+              <Table.Cell>${product.price}</Table.Cell>
               <Table.Cell className="flex items-center justify-center">
                 <span className="badge badge--primary">{product.quantity}</span>
               </Table.Cell>
               <Table.Cell>
                 <div className="flex items-center justify-between gap-0.5">
                   <BiEdit className="text-lg text-secondary-900 cursor-pointer" />
-                  <MdDelete className="text-lg text-error cursor-pointer" />
+                  <MdDelete
+                    className="text-lg text-error cursor-pointer"
+                    onClick={() => handleDelete(product.id)}
+                  />
                 </div>
               </Table.Cell>
             </Table.Row>
