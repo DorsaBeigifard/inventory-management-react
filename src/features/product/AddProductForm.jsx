@@ -8,14 +8,29 @@ function AddProductForm({ categories, setNewProducts, products }) {
     handleSubmit,
     reset,
     formState: { errors },
+    setError, 
   } = useForm();
 
   const onSubmit = (data) => {
+    const existingProduct = products.find(
+      (product) =>
+        product.productName.toLowerCase() === data.productName.toLowerCase()
+    );
+
+    if (existingProduct) {
+      setError("productName", {
+        type: "manual",
+        message: "Product name already exists.",
+      });
+      return;
+    }
+
     const newProduct = {
       id: Date.now(),
       date: new Date().toISOString(),
       ...data,
     };
+
     setNewProducts([...products, newProduct]);
     console.log("Product Added:", data);
     reset();
