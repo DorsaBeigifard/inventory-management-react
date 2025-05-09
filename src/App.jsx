@@ -2,35 +2,23 @@ import "./App.css";
 import AddProductForm from "./features/product/AddProductForm";
 import AddCategoryForm from "./features/category/AddCategoryForm";
 import Header from "./ui/Header";
-import { useState } from "react";
 import SearchProduct from "./features/product/SearchProduct";
 import ProductTable from "./features/product/ProductTable";
 import useLocalStorage from "./hooks/useLocalStorage";
+import useSearch from "./hooks/useSearch"; // 👈 here
+import { useState } from "react";
 
 function App() {
   const [editCategory, setEditCategory] = useState(false);
   const [categories, setCategories] = useLocalStorage("categories", []);
   const [products, setProducts] = useLocalStorage("products", []);
 
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [sortOrder, setSortOrder] = useState("");
-
-  const filteredProducts = products
-    .filter((product) =>
-      product.productName?.toLowerCase().includes(searchQuery.toLowerCase())
-    )
-    .filter((product) =>
-      selectedCategory ? product.category === selectedCategory : true
-    )
-    .sort((a, b) => {
-      if (sortOrder === "latest") {
-        return new Date(b.date) - new Date(a.date);
-      } else if (sortOrder === "earliest") {
-        return new Date(a.date) - new Date(b.date);
-      }
-      return 0;
-    });
+  const {
+    setSearchQuery,
+    setSelectedCategory,
+    setSortOrder,
+    filteredProducts,
+  } = useSearch(products, categories);
 
   return (
     <>
@@ -53,6 +41,7 @@ function App() {
               categories={categories}
             />
           )}
+
           <AddProductForm
             categories={categories}
             products={products}
