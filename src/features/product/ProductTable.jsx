@@ -12,6 +12,7 @@ function ProductTable() {
         <Table.HeaderCell className="w-[50%]">Product Name</Table.HeaderCell>
         <Table.HeaderCell>Date Added</Table.HeaderCell>
         <Table.HeaderCell>Category</Table.HeaderCell>
+        <Table.HeaderCell>Price</Table.HeaderCell>
         <Table.HeaderCell>Quantity</Table.HeaderCell>
         <Table.HeaderCell className="flex items-center justify-center">
           <HiClipboardList className="text-xl" />
@@ -24,6 +25,7 @@ function ProductTable() {
           <Table.Cell>
             <span className="badge badge--secondary">Mug</span>
           </Table.Cell>
+          <Table.Cell>$ 120</Table.Cell>
           <Table.Cell className="flex items-center justify-center">
             <span className="badge badge--primary">3</span>
           </Table.Cell>
