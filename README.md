@@ -17,7 +17,7 @@ This Inventory Management App allows users to manage products and categories in 
 - **Scrollable Table**: A scrollable product list table for better navigation when there are many products.
 - **Data Persistence**: Uses `localStorage` to save products and categories, ensuring data persistence across browser sessions.
 
-![Screenshot](assets/screenshot.png)
+![Screenshot](/src/assets/screenshot.png)
 
 ## Tech Stack
 
