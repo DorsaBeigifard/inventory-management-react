@@ -2,7 +2,7 @@ import React from "react";
 import TextField from "../../ui/TextField";
 import { useForm } from "react-hook-form";
 
-function SearchProduct() {
+function SearchProduct({ products, categories }) {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
@@ -44,7 +44,11 @@ function SearchProduct() {
             {...register("category")}
           >
             <option value="">-</option>
-            {/* ADD CATEGORIES */}
+            {categories.map((cat) => (
+              <option key={cat.id} value={cat.value}>
+                {cat.categoryName}
+              </option>
+            ))}
           </select>
         </div>
 

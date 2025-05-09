@@ -42,7 +42,7 @@ function App() {
 
         <div className="md:col-span-2 component-style">
           <h2>Product List</h2>
-          <SearchProduct />
+          <SearchProduct products={products} categories={categories} />
           <ProductTable
             products={products}
             updateProducts={setProducts}
